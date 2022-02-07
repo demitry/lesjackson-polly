@@ -85,4 +85,12 @@ dotnet new gitignore
 The template "dotnet gitignore file" was created successfully.
 
 Response
+GET
 http://localhost:5198/api/response/1
+GET
+http://localhost:5198/api/response/101
+
+
+
+dotnet new webapi -n RequestService
+
