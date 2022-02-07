@@ -59,11 +59,7 @@ WPF Custom Control Library                    wpfcustomcontrollib  [C#],VB     C
 WPF User Control Library                      wpfusercontrollib    [C#],VB     Common/WPF
 xUnit Test Project                            xunit                [C#],F#,VB  Test/xUnit
 
-
-
 code ResponseService -r
-
-
 
 PS D:\src\LesJackson\lesjackson-polly\ResponseService> dotnet run
 Building...
@@ -85,3 +81,8 @@ Note 2:
 Check proj file:
 <Nullable>enable</Nullable>
 
+dotnet new gitignore
+The template "dotnet gitignore file" was created successfully.
+
+Response
+http://localhost:5198/api/response/1
