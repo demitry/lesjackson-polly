@@ -96,3 +96,9 @@ dotnet new webapi -n RequestService
 dotnet add package Microsoft.Extensions.Http.Polly
 Now listening on: https://localhost:7090
 Now listening on: http://localhost:5261
+
+
+RequestService
+dotnet dev-certs https --trust
+Trusting the HTTPS development certificate was requested. A confirmation prompt will be displayed if the certificate was not previously trusted. Click yes on the prompt to trust the certificate.
+A valid HTTPS certificate is already present.
