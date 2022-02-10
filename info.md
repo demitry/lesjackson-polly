@@ -161,3 +161,15 @@ Installing Minikube…
 dotnet watch 
 don't have to stop and restart
 
+
+Stop using Http Client directly
+Start using Http Client Factory
+
+Problem: Connection Pool exhausting.
+
+Factory will manage connection pool for you.
+
+curl -X "GET" "https://localhost:7090/api/Request" -H "accept: */*"
+
+
+
