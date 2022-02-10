@@ -172,4 +172,4 @@ Factory will manage connection pool for you.
 curl -X "GET" "https://localhost:7090/api/Request" -H "accept: */*"
 
 
-
+Configure client policy stuff in one place and use widely in controllers

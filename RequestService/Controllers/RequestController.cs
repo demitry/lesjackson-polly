@@ -7,12 +7,10 @@ namespace RequestService.Controllers
     [ApiController]
     public class RequestController : ControllerBase
     {
-        private readonly ClientPolicy _clientPolicy;
         private readonly IHttpClientFactory _httpClientFactory;
 
-        public RequestController(ClientPolicy clientPolicy, IHttpClientFactory httpClientFactory)
+        public RequestController(IHttpClientFactory httpClientFactory)
         {
-            _clientPolicy = clientPolicy;
             _httpClientFactory = httpClientFactory;
         }
 
@@ -23,9 +21,10 @@ namespace RequestService.Controllers
             // Not recommended way to use HttpClient
             //var httpClient = new HttpClient();
             
-            var httpClient = _httpClientFactory.CreateClient();
+            //Named client will have access to the Polly policy
+            var httpClient = _httpClientFactory.CreateClient("Test");
 
-            //var response = await httpClient.GetAsync("http://localhost:5198/api/response/25");
+            var response = await httpClient.GetAsync("http://localhost:5198/api/response/25");
 
             //var response = await _clientPolicy.ImmediateHttpRetry.ExecuteAsync(
             //    () =>  httpClient.GetAsync("http://localhost:5198/api/response/25"));
@@ -33,8 +32,8 @@ namespace RequestService.Controllers
             // var response = await _clientPolicy.LinearHttpRetry.ExecuteAsync(
             //     () =>  httpClient.GetAsync("http://localhost:5198/api/response/25"));
 
-            var response = await _clientPolicy.ImmediateHttpRetry.ExecuteAsync(
-                () =>  httpClient.GetAsync("http://localhost:5198/api/response/25"));
+            // var response = await _clientPolicy.ImmediateHttpRetry.ExecuteAsync(
+            //     () =>  httpClient.GetAsync("http://localhost:5198/api/response/25"));
 
             if (response.IsSuccessStatusCode)
             {
