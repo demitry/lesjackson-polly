@@ -23,7 +23,10 @@ namespace RequestService.Controllers
 
             //var response = await httpClient.GetAsync("http://localhost:5198/api/response/25");
 
-            var response = await _clientPolicy.ImmediateHttpRetry.ExecuteAsync(
+            //var response = await _clientPolicy.ImmediateHttpRetry.ExecuteAsync(
+            //    () =>  httpClient.GetAsync("http://localhost:5198/api/response/25"));
+
+            var response = await _clientPolicy.LinearHttpRetry.ExecuteAsync(
                 () =>  httpClient.GetAsync("http://localhost:5198/api/response/25"));
 
             if (response.IsSuccessStatusCode)
