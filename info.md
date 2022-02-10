@@ -156,3 +156,8 @@ Already got kubectl...
 Installing Helm...
 Installing Minikube…
 
+
+
+dotnet watch 
+don't have to stop and restart
+
